@@ -9,7 +9,7 @@ const App = () => (
     <div className={styles.mainContainer}>
       <Row type="flex" justify="space-between" align="middle">
         <Col sm={12}>
-          <h2 className={styles.shopTitle}>Acme Store</h2>
+          <h1 className={styles.shopTitle}>Acme Store</h1>
         </Col>
         <Col sm={12}>
           <p className={styles.titleBarCart}><Icon type="shopping-cart" className={styles.cartButton}/>&nbsp;Your Cart is Empty</p>
