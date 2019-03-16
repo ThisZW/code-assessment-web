@@ -4,16 +4,16 @@ import {Row, Col, Button} from 'antd'
 import demoImg from '../assets/demo.jpg'
 import styles from './Product.module.css'
 
-const Product = ({ price, quantity, title }) => (
-  <Row className={styles.productContainer}>
-    <Col sm={8}>
+const Product = ({ price, quantity, title, onAddToCartClicked }) => (
+  <Row className={styles.productContainer} type="flex">
+    <Col lg={8} md={10} sm={12} xs={24}>
       <img className={styles.productImg} src={demoImg} alt=""/>
     </Col>
-    <Col sm={16}>
+    <Col lg={16} md={14} sm={12} xs={24}>
       <div className={styles.productDetails}>
-        <Row>
+        <Row type="flex" justify="space-between" align="top">
           <Col span={18}>
-            <h2>{title}</h2>
+            <h2 styleName={styles.productName}>{title}</h2>
           </Col>
           <Col span={6}>
             <span className={styles.price}>${price}</span>
@@ -21,7 +21,14 @@ const Product = ({ price, quantity, title }) => (
         </Row>
         <div>{quantity ? `${quantity} Remaining` : null}</div>
         <br/>
-        <Button>Add To Cart</Button>
+        <Button
+          type="primary"
+          shape="round"
+          className={styles.addToCartButton}
+          onClick={onAddToCartClicked}
+          disabled={quantity > 0 ? '' : 'disabled'}>
+          {quantity > 0 ? 'Add to cart' : 'Sold Out'}
+        </Button>
       </div>
     </Col>
   </Row>
@@ -30,7 +37,8 @@ const Product = ({ price, quantity, title }) => (
 Product.propTypes = {
   price: PropTypes.number,
   quantity: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  onAddToCartClicked: PropTypes.func,
 }
 
 export default Product

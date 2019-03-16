@@ -3,17 +3,32 @@
   background-color: white;
 }
 
+
 .productImg{
   width: 100%;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .productDetails{
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 7% 7%;
+  height: 100%;
 }
 
 .price{
   float:right;
+  margin-top: 0.5em;
+}
+
+@media(min-width: 576px){
+  .productImg{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+
+@media(max-width: 575px){
+  .productImg{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 }

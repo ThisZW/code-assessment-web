@@ -1,6 +1,6 @@
 
 .app{
-  background-color: #fafafa;
+  background-color: #F5F5F5 ;
 }
 .mainContainer{
   max-width: 1280px;
@@ -9,12 +9,12 @@
 }
 .shopTitle{
   font-weight: bolder;
-  font-size: 1.7rem;
+  font-size: 2em;
   display: inline-block;
 }
 .titleBarCart{
   float:right;
 }
-.cartButton{
-  font-size: 1.2rem;
+.cartIcon{
+  font-size: 1.2em;
 }

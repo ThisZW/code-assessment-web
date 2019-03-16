@@ -8,6 +8,7 @@ import reducer from './reducers'
 import { getAllProducts } from './actions'
 import App from './containers/App'
 import 'antd/dist/antd.css'
+import './main.css'
 
 
 const middleware = [ thunk ];
