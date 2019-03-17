@@ -2,9 +2,12 @@ import React from 'react'
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
 import styles from './App.module.css'
+import { connect } from 'react-redux'
+import { toggleCartDisplay } from '../actions'
+import { getIsCartDisplaying } from '../reducers'
 import {Icon, Modal, Row, Col} from 'antd'
 
-const App = () => (
+const App = ({isCartDisplaying}) => (
   <div className={styles.app}>
     <div className={styles.mainContainer}>
       <Row type="flex" justify="space-between" align="middle">
@@ -21,10 +24,25 @@ const App = () => (
       <hr/>
       <ProductsContainer />
       <hr/>
-
-      <CartContainer/>
+      <Modal
+        visible={isCartDisplaying}
+        title="Shopping Cart"
+      >
+        <CartContainer/>
+      </Modal>
     </div>
   </div>
 )
 
-export default App
+App.protoTypes = {
+  isCartDisplaying: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = state => ({
+  isCartDisplaying: getIsCartDisplaying(state)
+})
+
+export default connect(
+  mapStateToProps,
+  {toggleCartDisplay}
+)(App)

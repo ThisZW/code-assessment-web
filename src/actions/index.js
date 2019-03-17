@@ -38,3 +38,11 @@ export const checkout = products => (dispatch, getState) => {
     // dispatch({ type: types.CHECKOUT_FAILURE, cart })
   })
 }
+
+export const toggleCartDisplay = () => (dispatch, getState) => {
+  const { cart } = getState()
+  dispatch({
+    type: types.CART_DISPLAY_TOGGLE,
+    cart
+  })  
+}

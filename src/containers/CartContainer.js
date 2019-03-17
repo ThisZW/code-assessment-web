@@ -25,7 +25,7 @@ CartContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
   products: getCartProducts(state),
-  total: getTotal(state)
+  total: getTotal(state),
 })
 
 export default connect(

@@ -1,12 +1,14 @@
 import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
-  CHECKOUT_FAILURE
+  CHECKOUT_FAILURE,
+  CART_DISPLAY_TOGGLE
 } from '../constants/ActionTypes'
 
 const initialState = {
   addedIds: [],
-  quantityById: {}
+  quantityById: {},
+  isCartDisplaying: false,
 }
 
 const addedIds = (state = initialState.addedIds, action) => {
@@ -33,10 +35,22 @@ const quantityById = (state = initialState.quantityById, action) => {
   }
 }
 
+//add state for toggling around cart display
+const cartDisplay = (state = initialState.isCartDisplaying, action)=>{
+  switch (action.type){
+    case CART_DISPLAY_TOGGLE:
+      return !state
+    default:
+      return state
+  }
+}
+
 export const getQuantity = (state, productId) =>
   state.quantityById[productId] || 0
 
 export const getAddedIds = state => state.addedIds
+
+export const getIsCartDisplaying = state => state.isCartDisplaying
 
 const cart = (state = initialState, action) => {
   switch (action.type) {
@@ -47,7 +61,8 @@ const cart = (state = initialState, action) => {
     default:
       return {
         addedIds: addedIds(state.addedIds, action),
-        quantityById: quantityById(state.quantityById, action)
+        quantityById: quantityById(state.quantityById, action),
+        isCartDisplaying: cartDisplay(state.isCartDisplaying, action)
       }
   }
 }
