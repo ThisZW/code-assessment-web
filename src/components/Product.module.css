@@ -3,14 +3,13 @@
   background-color: white;
 }
 
-
 .productImg{
   width: 100%;
   overflow: hidden;
 }
 
 .productDetails{
-  padding: 7% 7%;
+  padding: 6%;
   height: 100%;
 }
 
@@ -23,6 +22,10 @@
   .productImg{
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+  }
+  .addToCartButton{
+    position: absolute !important;
+    bottom: 35px;
   }
 }
 

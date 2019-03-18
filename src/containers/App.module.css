@@ -2,19 +2,23 @@
 .app{
   background-color: #F5F5F5 ;
 }
+
 .mainContainer{
   max-width: 1280px;
   margin: auto;
   padding: 40px;
 }
+
 .shopTitle{
   font-weight: bolder;
   font-size: 2em;
   display: inline-block;
 }
+
 .titleBarCart{
   float:right;
 }
+
 .cartIcon{
   font-size: 1.2em;
 }

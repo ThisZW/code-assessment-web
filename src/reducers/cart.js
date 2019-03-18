@@ -2,7 +2,8 @@ import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
   CHECKOUT_FAILURE,
-  CART_DISPLAY_TOGGLE
+  CART_DISPLAY_TOGGLE,
+  CART_ITEM_REMOVE
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -18,6 +19,12 @@ const addedIds = (state = initialState.addedIds, action) => {
         return state
       }
       return [ ...state, action.productId ]
+    //remove and update cart
+    case CART_ITEM_REMOVE:
+      if (state.indexOf(action.productId) !== -1) {
+        state.splice(state.indexOf(action.productId), 1)
+        return state
+      }
     default:
       return state
   }

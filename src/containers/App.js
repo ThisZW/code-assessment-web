@@ -1,13 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { toggleCartDisplay} from '../actions'
+import { getIsCartDisplaying, getCartProducts} from '../reducers'
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
+import {Icon, Modal, Row, Col, Button} from 'antd'
 import styles from './App.module.css'
-import { connect } from 'react-redux'
-import { toggleCartDisplay } from '../actions'
-import { getIsCartDisplaying } from '../reducers'
-import {Icon, Modal, Row, Col} from 'antd'
 
-const App = ({isCartDisplaying}) => (
+
+const App = ({ isCartDisplaying, toggleCartDisplay, products }) => (
   <div className={styles.app}>
     <div className={styles.mainContainer}>
       <Row type="flex" justify="space-between" align="middle">
@@ -15,18 +17,42 @@ const App = ({isCartDisplaying}) => (
           <h1 className={styles.shopTitle}>Acme Store</h1 >
         </Col>
         <Col sm={12} xs={{span:0}}>
-          <p className={styles.titleBarCart}><Icon type="shopping-cart" className={styles.cartIcon}/>&nbsp;Your Cart is Empty</p>
+          <a href="#" onClick={() => toggleCartDisplay()}>
+            <p className={styles.titleBarCart}>
+              <Icon type="shopping-cart" className={styles.cartIcon}/>
+              &nbsp;
+              {products.length > 0 ? 
+                `${products.map(p => p.quantity).reduce((acc, cur) => acc+cur)}
+                Items in your cart`
+                :
+                "Your Cart is Empty"}
+            </p>
+          </a>
         </Col>
         <Col sm={{span:0}} xs={24}>
-          <p><Icon type="shopping-cart" className={styles.cartIcon}/>&nbsp;Your Cart is Empty</p>
+          <a href="#" onClick={() => toggleCartDisplay()}>
+            <p>
+              <Icon type="shopping-cart" className={styles.cartIcon}/>
+              &nbsp;
+              {products.length > 0 ? 
+                `${products.map(p => p.quantity).reduce((acc, cur) => acc+cur)} 
+                Items in your cart`
+                :
+                "Your Cart is Empty"}
+            </p>
+          </a>
         </Col>
       </Row>
       <hr/>
       <ProductsContainer />
-      <hr/>
+    
       <Modal
         visible={isCartDisplaying}
         title="Shopping Cart"
+        onOk={() => toggleCartDisplay()}
+        onCancel={() => toggleCartDisplay()}
+        footer={null}
+        centered
       >
         <CartContainer/>
       </Modal>
@@ -39,7 +65,9 @@ App.protoTypes = {
 }
 
 const mapStateToProps = state => ({
-  isCartDisplaying: getIsCartDisplaying(state)
+  isCartDisplaying: getIsCartDisplaying(state),
+  products: getCartProducts(state)
+  
 })
 
 export default connect(

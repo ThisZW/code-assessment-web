@@ -1,9 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Chivo:400,900');
+@import url('https://fonts.googleapis.com/css?family=Chivo');
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1');
 
 h1,h2,h3,h4,h5,div,p,span{
   font-family: 'Chivo', sans-serif;
 }
 
 hr{
-  margin-bottom:30px;
+  margin-bottom:20px;
+}
+
+a{
+  color: black;
+}
+
+.ant-modal-title{
+  font-weight: bolder;
+  font-size: 1.5em;
+  margin: 20px 0px 0 0px;
+}
+
+/* rewrite antd modal */
+.ant-modal{
+  min-width: 600px;
+}
+
+@media(max-width: 575px){
+  /*rewrite antd modal css when it goes to mobile view*/
+  .ant-modal{
+    min-width: 100vw;
+    padding: 0px;
+    margin: 0px;
+  }
+  .ant-modal-content{
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+.ant-input-number-input{
+  text-align: center
 }

@@ -39,10 +39,22 @@ export const checkout = products => (dispatch, getState) => {
   })
 }
 
+const cartDisplayToggle = () => ({
+  type: types.CART_DISPLAY_TOGGLE
+})
+
 export const toggleCartDisplay = () => (dispatch, getState) => {
-  const { cart } = getState()
-  dispatch({
-    type: types.CART_DISPLAY_TOGGLE,
-    cart
-  })  
+  dispatch(cartDisplayToggle())
+}
+
+const cartItemRemove = (productId, qty) =>({
+  type: types.CART_ITEM_REMOVE,
+  productId,
+  qty
+})
+
+export const removeItemFromCart = (productId, qty) => (dispatch, getState) => {
+  if(getState().cart.addedIds.includes(productId)){
+    dispatch(cartItemRemove(productId, qty))
+  }
 }

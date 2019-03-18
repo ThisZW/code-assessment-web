@@ -24,3 +24,5 @@ export const getCartProducts = state =>
     ...getProduct(state, id),
     quantity: getQuantity(state, id)
   }))
+
+export const getIsCartDisplaying = state => fromCart.getIsCartDisplaying(state.cart)
