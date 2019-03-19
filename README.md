@@ -1,4 +1,4 @@
-# Work & Co Web Code Assessment
+# Work & Co Web Code Assessment, completed by Chris Huang(@ThisZW)
 
 This is a copy of the [Redux Shopping Cart Example](https://github.com/reactjs/redux/tree/master/examples/shopping-cart).
 
@@ -14,26 +14,30 @@ To start a development server:
 yarn start
 ```
 
-## Setup
+## Goals/Tasks
 
-Please create a new, public Github repository where your assessment can be reviewed. We recommend the following steps:
+- [X] 1. [Implement Responsive Design](/tasks/01-responsive-design.md)
+- Three breakpoints are specifically optimized with responsive designs(ie, desktop with width>1280px, iPad pro, iPhone X), although devices with all widths should be looking good.
+- [X] 2. [Enhance Cart Functionality](/tasks/02-cart-enhancements.md)
+- Added multiple actions, CART_ITEM_REMOVE and CART_ITEM_UPDATE states to support the funtionality of remove and update. Mostly manually debugged/tested, added origQty to product state to keep tracking the maximum amount of quantity for each product that can be set in the shopping cart. 
+- [X] 3. [Hook Up Product API](/tasks/03-product-api.md)
+- Completed with Axios.
 
-- Create a repository on your personal Github. Make sure the `Initialize this repository with a README` box is unchecked.
-- Visit your new repository. Copy the `…or push an existing repository from the command line` code provided and run it in your terminal in the same directory as this README file. It will look something like this:
+### Some decision Making process:
 
-```
-git remote add origin git@github.com:my-username/my-assessment.git
-git push -u origin master
-```
+My priority of working on this project is always focus on the first-phase view of each components(Usually with desktop breakpoint), then add functionality with redux and do some tests. Once it is completed, work more on CSS to support multiple breakpoints and optimize the views (ie, hovers, disable buttons, alerts and etc).  
 
-Note: You're encouraged to show your work by including multiple commits - we'll be looking through your git history.
+UI/CSS Library chosen: Ant Design Library, Native CSS Module  
+Ant Design is a great library that has the most of the out-of-box component that I can use for this project with responsive designs. 
+Most frequently used components: Buttons, Modal, Input, Rows and Cols etc.  
+With this assessment that I decide to use Native CSS Modules at the beginning, it was tough to deal with overriding properties and meet the design requirement(That I had to use !important couple times).   
+In the future when we are using Antd, I think tools like react-app-rewire-antd && react-css-modules with LESS should be better to deal with these issues.  
 
-## Tasks
+API was fetched by Axios, which worked a lot better compare to native tool 'fetch'.   
+Here is the link of the entire discussion: https://medium.com/@sahilkkrazy/fetch-vs-axios-http-request-c9afa43f804ed
 
-1. [Implement Responsive Design](/tasks/01-responsive-design.md)
-2. [Enhance Cart Functionality](/tasks/02-cart-enhancements.md)
-3. [Hook Up Product API](/tasks/03-product-api.md)
+Fonts were imported by Google Fonts, there is no 'helvetica neue' avaliable in Google Fonts so I decide to choose similar one called 'Gothic' as an alternative for this project.  
 
-You're welcome (but not required) to add any libraries you think would be helpful.
+### At the end
+By the way altough the entire project is time consuming, I still enjoy the progress especially playing around with Redux :)
 
-Please also update this README file: we'd love to see notes on your decision-making process, links to the most exciting pieces of code, or anything else that will give us additional context when reviewing your assessment.
