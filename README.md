@@ -17,7 +17,7 @@ yarn start
 ## Goals/Tasks
 
 - [X] 1. [Implement Responsive Design](/tasks/01-responsive-design.md)
-- Three breakpoints are specifically optimized with responsive designs(ie, desktop with width>1280px, iPad pro, iPhone X), altough devices with all width should have a decent view.
+- Three breakpoints are specifically optimized with responsive designs(ie, desktop with width>1280px, iPad pro, iPhone X), although devices with all widths should be looking good.
 - [X] 2. [Enhance Cart Functionality](/tasks/02-cart-enhancements.md)
 - Added multiple actions, CART_ITEM_REMOVE and CART_ITEM_UPDATE states to support the funtionality of remove and update. Mostly manually debugged/tested, added origQty to product state to keep tracking the maximum amount of quantity for each product that can be set in the shopping cart. 
 - [X] 3. [Hook Up Product API](/tasks/03-product-api.md)
