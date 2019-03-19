@@ -31,7 +31,7 @@ UI/CSS Library chosen: Ant Design Library, Native CSS Module
 Ant Design is a great library that has the most of the out-of-box component that I can use for this project with responsive designs. 
 Most frequently used components: Buttons, Modal, Input, Rows and Cols etc.  
 With this assessment that I decide to use Native CSS Modules at the beginning, it was tough to deal with overriding properties and meet the design requirement(That I had to use !important couple times).   
-In the future when we are using Antd, I think tools like react-app-rewire-antd && react-css-modules with LESS should be a better to deal with these issues.  
+In the future when we are using Antd, I think tools like react-app-rewire-antd && react-css-modules with LESS should be better to deal with these issues.  
 
 API was fetched by Axios, which worked a lot better compare to native tool 'fetch'.   
 Here is the link of the entire discussion: https://medium.com/@sahilkkrazy/fetch-vs-axios-http-request-c9afa43f804ed
