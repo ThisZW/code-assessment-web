@@ -27,7 +27,7 @@ yarn start
 
 My priority of working on this project is always focus on the first-phase view of each components(Usually with desktop breakpoint), then add functionality with redux and do some tests. Once it is completed, work more on CSS to support multiple breakpoints and optimize the views (ie, hovers, disable buttons, alerts and etc).  
 
-UI Library chosen: Ant Design Library, Native CSS Module  
+UI/CSS Library chosen: Ant Design Library, Native CSS Module  
 Ant Design is a great library that has the most of the out-of-box component that I can use for this project with responsive designs. 
 Most frequently used components: Buttons, Modal, Input, Rows and Cols etc.  
 With this assessment that I decide to use Native CSS Modules at the beginning, it was tough to deal with overriding properties and meet the design requirement(That I had to use !important couple times).   
