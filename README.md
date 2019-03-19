@@ -36,7 +36,7 @@ In the future when we are using Antd, I think tools like react-app-rewire-antd &
 API was fetched by Axios, which worked a lot better compare to native tool 'fetch'.   
 Here is the link of the entire discussion: https://medium.com/@sahilkkrazy/fetch-vs-axios-http-request-c9afa43f804ed
 
-Fonts were imported by Google Fonts, there was no 'helvetica neue' avaliable in Google Fonts so I decide to choose similar one called 'Gothic' just for convinience of this project.  
+Fonts were imported by Google Fonts, there is no 'helvetica neue' avaliable in Google Fonts so I decide to choose similar one called 'Gothic' as an alternative for this project.  
 
 ### At the end
 By the way altough the entire project is time consuming, I still enjoy the progress especially playing around with Redux :)
