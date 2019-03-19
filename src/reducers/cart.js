@@ -21,6 +21,14 @@ const addedIds = (state = initialState.addedIds, action) => {
       }
       return [ ...state, action.productId ]
     //remove and update cart
+    case CART_ITEM_UPDATE:
+      const { qtys } = action
+      qtys.forEach((val, key) => {
+        if(val === 0) {
+          state.splice(state.indexOf(key), 1)
+        }
+      })
+      return state
     case CART_ITEM_REMOVE:
       if (state.indexOf(action.productId) !== -1) {
         state.splice(state.indexOf(action.productId), 1)
@@ -46,9 +54,12 @@ const quantityById = (state = initialState.quantityById, action) => {
     case CART_ITEM_UPDATE:
       const { qtys } = action
       let qtyObj = {}
-      qtys.forEach((v,k)=>{
-        qtyObj[k] = v
+      qtys.forEach(( val, key)=>{
+        if( val !== 0){
+          qtyObj[key] = val
+        }
       })
+      console.log(qtyObj)
       return qtyObj
     default:
       return state
