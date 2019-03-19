@@ -17,15 +17,21 @@ yarn start
 ## Goals/Tasks
 
 - [X] 1. [Implement Responsive Design](/tasks/01-responsive-design.md)
+- Three breakpoints are specifically optimized with responsive designs(ie, desktop with width>1280px, iPad pro, iPhone X), altough devices with all width should have a decent view.
 - [X] 2. [Enhance Cart Functionality](/tasks/02-cart-enhancements.md)
+- Added multiple actions, CART_ITEM_REMOVE and CART_ITEM_UPDATE states to support the funtionality of remove and update. Mostly manually debugged/tested, added origQty to product state to keep tracking the maximum amount of quantity for each product that can be set in the shopping cart. 
 - [X] 3. [Hook Up Product API](/tasks/03-product-api.md)
+- Completed with Axios.
 
 ### Some decision Making process:
 
 My priority of working on this project is always focus on the first-phase view of each components(Usually with desktop breakpoint), then add functionality with redux and do some tests. Once it is completed, work more on CSS to support multiple breakpoints and optimize the views (ie, hovers, disable buttons, alerts and etc).
 
 UI Library chosen: Ant Design Library, Native CSS Module
-Ant Design is a great library that has the most of the out-of-box component that I can use for this project with responsive designs. The pain point was that it was tough to override some css properties to meet design requirement with Native CSS Modules (That I had to use !important couple times). In the future of designing using Antd, I think tools like webpack config override && react-css-modules with Less should be a better set of CSS tools to deal with these issues.
+Ant Design is a great library that has the most of the out-of-box component that I can use for this project with responsive designs. 
+Most frequently used components: Buttons, Modal, Input, Rows and Cols etc.
+With this assessment that I decide to use Native CSS Modules at the beginning, it was tough to deal with overriding properties and meet the design requirement(That I had to use !important couple times). 
+In the future when we are using Antd, I think tools like react-app-rewire-antd && react-css-modules with LESS should be a better to deal with these issues.
 
 API was fetched by Axios, which worked a lot better compare to native tool 'fetch'. 
 Here is the link of the entire discussion: https://medium.com/@sahilkkrazy/fetch-vs-axios-http-request-c9afa43f804ed
