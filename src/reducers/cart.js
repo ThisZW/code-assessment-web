@@ -3,7 +3,8 @@ import {
   CHECKOUT_REQUEST,
   CHECKOUT_FAILURE,
   CART_DISPLAY_TOGGLE,
-  CART_ITEM_REMOVE
+  CART_ITEM_REMOVE,
+  CART_ITEM_UPDATE,
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -37,6 +38,18 @@ const quantityById = (state = initialState.quantityById, action) => {
       return { ...state,
         [productId]: (state[productId] || 0) + 1
       }
+    case CART_ITEM_REMOVE:
+      return {
+        ...state,
+        [action.productId]: 0
+      }
+    case CART_ITEM_UPDATE:
+      const { qtys } = action
+      let qtyObj = {}
+      qtys.forEach((v,k)=>{
+        qtyObj[k] = v
+      })
+      return qtyObj
     default:
       return state
   }

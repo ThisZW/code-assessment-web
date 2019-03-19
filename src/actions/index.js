@@ -25,7 +25,6 @@ export const addToCart = productId => (dispatch, getState) => {
 
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
-
   dispatch({
     type: types.CHECKOUT_REQUEST
   })
@@ -57,4 +56,13 @@ export const removeItemFromCart = (productId, qty) => (dispatch, getState) => {
   if(getState().cart.addedIds.includes(productId)){
     dispatch(cartItemRemove(productId, qty))
   }
+}
+
+const cartItemUpdate = (qtys) => ({
+  type: types.CART_ITEM_UPDATE,
+  qtys
+})
+
+export const updateCartItems = (qtys) => (dispatch, getState) => {
+  dispatch(cartItemUpdate(qtys))
 }

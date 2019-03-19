@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import demoImg from '../assets/demo.jpg'
 import styles from './Cart.module.css'
 import {Icon, Row, Col, Button, InputNumber, Alert} from 'antd'
-import { removeItemFromCart } from '../actions';
 
 class Cart extends React.Component{
   constructor(){
@@ -61,14 +60,13 @@ class Cart extends React.Component{
         showUpdateSuccess: true,
         showUpdateError: false,
       })
-      console.log('here')
+      updateCartItems(tempQty)
     } else {
       this.setState({
         showUpdateSuccess: false,
         showUpdateError: true,
       })
     }
-    updateCartItems()
   }
   
   cartProduct = (product) => {
@@ -84,7 +82,7 @@ class Cart extends React.Component{
             <div  className={styles.cartProductDetails}>
               <h2>{product.title}</h2>
               <h4>${product.price}</h4>
-              <a href="#" onClick={() => onCartItemRemove(product.id, 1)} className={styles.cartProductRemove}>Remove</a>
+              <a href="#" onClick={() => onCartItemRemove(product.id, product.quantity)} className={styles.cartProductRemove}>Remove</a>
             </div>
           </Col>
         </Row>
@@ -92,7 +90,8 @@ class Cart extends React.Component{
           <Row>
             <Col span={8}>
               <Button 
-                className={styles.cartQtyMinus} 
+                disabled={tempQty.get(product.id) === 0}
+                className={[styles.cartQtyChange, styles.buttonLeft].join(' ')} 
                 onClick={() => this.updateTempQty(product.id, 'minus')} 
                 size="large" block>
                 <Icon type="minus" className={styles.cartQtyIcon} />
@@ -103,7 +102,8 @@ class Cart extends React.Component{
             </Col>
             <Col span={8}>
               <Button 
-                className={styles.cartQtyPlus} 
+                disabled = {tempQty.get(product.id) === product.origQty}
+                className={[styles.cartQtyChange, styles.buttonRight].join(' ')} 
                 onClick={() => this.updateTempQty(product.id, 'plus')} 
                 size="large" block>
                 <Icon type="plus" className={styles.cartQtyIcon}/>
@@ -116,7 +116,7 @@ class Cart extends React.Component{
   }
 
   render(){
-    const {products, total, onCheckoutClicked} = this.props
+    const {products, total} = this.props
     const { showUpdateError, showUpdateSuccess } = this.state
     const hasProducts = products.length > 0
     return(
@@ -173,7 +173,6 @@ class Cart extends React.Component{
 Cart.propTypes = {
   products: PropTypes.array,
   total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func,
   onCartItemRemove: PropTypes.func,
 }
 

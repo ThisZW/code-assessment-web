@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { toggleCartDisplay} from '../actions'
+import { toggleCartDisplay, checkout} from '../actions'
 import { getIsCartDisplaying, getCartProducts} from '../reducers'
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
@@ -9,7 +9,7 @@ import {Icon, Modal, Row, Col, Button} from 'antd'
 import styles from './App.module.css'
 
 
-const App = ({ isCartDisplaying, toggleCartDisplay, products }) => (
+const App = ({ isCartDisplaying, toggleCartDisplay, products, checkout }) => (
   <div className={styles.app}>
     <div className={styles.mainContainer}>
       <Row type="flex" justify="space-between" align="middle">
@@ -51,7 +51,11 @@ const App = ({ isCartDisplaying, toggleCartDisplay, products }) => (
         title="Shopping Cart"
         onOk={() => toggleCartDisplay()}
         onCancel={() => toggleCartDisplay()}
-        footer={null}
+        footer={
+          <Button onClick={() =>checkout() } type="primary" size="large" className={styles.checkout} block>
+            <p className={styles.checkoutText}>Checkout</p>
+          </Button>
+        }
         centered
       >
         <CartContainer/>
@@ -72,5 +76,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {toggleCartDisplay}
+  {toggleCartDisplay, checkout}
 )(App)

@@ -35,8 +35,35 @@ a{
     height: 100vh;
     border-radius: 0;
   }
+  .ant-modal-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
 }
 
 .ant-input-number-input{
   text-align: center
+}
+
+.ant-btn-primary{
+  color: #fff;
+  background-color: #5e97d1;
+  border-color: #5e97d1;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus{
+  color: #fff;
+  background-color: #1a619a;
+  border-color: #1a619a;
+}
+
+.ant-btn-primary[disabled]{
+  color: white;
+  background-color: #d0e1f2;
+  border-color: #d0e1f2;
+}
+
+.ant-modal-footer{
+  padding: 0;
 }

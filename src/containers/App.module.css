@@ -22,3 +22,14 @@
 .cartIcon{
   font-size: 1.2em;
 }
+
+.checkoutText{
+  color: white;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.checkout{
+  height: 3.5em !important;
+  border-radius: 0 !important;
+}

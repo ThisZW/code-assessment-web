@@ -17,7 +17,8 @@ const getProductsFromAPI = async () => {
             id: p.id,
             title: p.productTitle,
             price: p.price.value,
-            inventory: p.inventory
+            inventory: p.inventory,
+            origQty: p.inventory
           }
         })
         return resolve(res)

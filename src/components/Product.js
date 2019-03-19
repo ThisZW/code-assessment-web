@@ -13,13 +13,13 @@ const Product = ({ price, quantity, title, onAddToCartClicked }) => (
       <div className={styles.productDetails}>
         <Row type="flex" justify="space-between" align="top">
           <Col span={18}>
-            <h2 styleName={styles.productName}>{title}</h2>
+            <h2 className={styles.productName}>{title}</h2>
           </Col>
           <Col span={6}>
             <span className={styles.price}>${price}</span>
           </Col>
         </Row>
-        <div>{quantity ? `${quantity} Remaining` : null}</div>
+        <div>{quantity ? `${quantity} Remaining` : `Sold Out!`}</div>
         <br/>
         <Button
           type="primary"
@@ -27,7 +27,7 @@ const Product = ({ price, quantity, title, onAddToCartClicked }) => (
           className={styles.addToCartButton}
           onClick={onAddToCartClicked}
           disabled={quantity > 0 ? '' : 'disabled'}>
-          {quantity > 0 ? 'Add to cart' : 'Sold Out'}
+          Add To Cart
         </Button>
       </div>
     </Col>
